@@ -1,0 +1,26 @@
+{
+  "name": "language-evaluation-prototype",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dvberkel/language-evaluation-prototype",
+  "authors": [
+    "dvberkel <daan.v.berkel.1980+git@gmail.com>"
+  ],
+  "description": "Evaluate different languages on the server",
+  "main": "index.html",
+  "keywords": [
+    "asteroids",
+    "game",
+    "code",
+    "language",
+    "evaluation"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
