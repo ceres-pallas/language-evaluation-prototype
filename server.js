@@ -7,6 +7,8 @@ var io = require('socket.io').listen(server);
 
 app.set('port', process.env.port || 1729);
 
+app.use('/static', express.static(__dirname + '/public'));
+
 io.sockets.on('connection', function(socket){
     console.log('socket %s connected', socket.id);
 });
