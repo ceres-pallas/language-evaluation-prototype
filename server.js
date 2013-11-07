@@ -11,6 +11,10 @@ app.use('/static', express.static(__dirname + '/public'));
 
 io.sockets.on('connection', function(socket){
     console.log('socket %s connected', socket.id);
+
+    socket.on('change', function(data){
+	console.log(data.code);
+    });
 });
 
 server.listen(app.get('port'));
