@@ -1,0 +1,25 @@
+{
+  "name": "language-evaluation-prototype",
+  "version": "0.0.0",
+  "description": "Evaluate different languages on the browser\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dvberkel/language-evaluation-prototype.git"
+  },
+  "keywords": [
+    "asteroids",
+    "code",
+    "game",
+    "language",
+    "evaluation"
+  ],
+  "author": "Daan van Berkel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dvberkel/language-evaluation-prototype/issues"
+  }
+}
