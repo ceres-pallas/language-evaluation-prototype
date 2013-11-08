@@ -1,0 +1,11 @@
+var oldLog = console.log;
+console.log = this.log.bind(this);
+
+try {
+    {{{code}}}
+} catch (error) {
+    this.error(error);
+}
+
+console.log = oldLog;
+this.finish();

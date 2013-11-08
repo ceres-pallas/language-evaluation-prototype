@@ -1,4 +1,5 @@
 var express = require('express');
+var evaluator = require('./lib/evaluator');
 
 var app = new express();
 
@@ -13,7 +14,9 @@ io.sockets.on('connection', function(socket){
     console.log('socket %s connected', socket.id);
 
     socket.on('change', function(data){
-	console.log(data.code);
+	evaluator.evaluate(data.code, function(result){
+	    socket.emit('result', result);
+	});
     });
 });
 
