@@ -8,17 +8,20 @@
     var result = document.getElementById('result');
     result.className = 'success';
 
-    [{ value: 'js', text: 'JavaScript' }, { value: 'py', text: 'Python' }].forEach(function(data){
+    var editor = CodeMirror.fromTextArea(code,{
+	mode: 'javascript',
+	lineNumbers: true
+    });
+
+    [{ value: 'javascript', text: 'JavaScript' }, { value: 'python', text: 'Python' }].forEach(function(data){
 	var option = document.createElement('option');
 	option.setAttribute('value', data.value);
 	option.text = data.text;
 	language.appendChild(option);
     });
-
-    var editor = CodeMirror.fromTextArea(code,{
-	mode: 'javascript',
-	lineNumbers: true
-    });
+    language.addEventListener('change', function(){
+	editor.setOption('mode', language.value);
+    })
 
     editor.on('change', function(instance, change){
 	socket.emit('change', {
