@@ -2,7 +2,9 @@
     var socket = io.connect(window.location.origin);
 
     var code = document.getElementById('code');
-    code.textContent = 'console.log(\'Hello World\');'
+
+    var result = document.getElementById('result');
+    result.className = 'success';
 
     var editor = CodeMirror.fromTextArea(code,{
 	mode: 'javascript',
@@ -16,7 +18,15 @@
 	});
     });
 
-    socket.on('result', function(result){
-	console.log(result);
+    socket.on('result', function(data){
+	result.innerHTML = '';
+	result.className = data.error ? 'failure' : 'success';
+	data.message.split('\n').forEach(function(log){
+	    var line = document.createElement('div');
+	    line.textContent = '' + log;
+	    result.appendChild(line);
+	});
     });
+
+    editor.setValue('console.log(\'Hello World\');');
 })(CodeMirror);
