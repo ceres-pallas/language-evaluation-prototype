@@ -1,0 +1,15 @@
+div#result {
+    padding: 20px;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 2em;
+    border-radius: 20px;
+}
+
+.success {
+    background-color: rgba(0,255,0,0.3);
+}
+
+.failure {
+    background-color: rgba(255,0,0,0.3);
+}
