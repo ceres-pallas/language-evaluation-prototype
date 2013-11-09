@@ -14,7 +14,7 @@ io.sockets.on('connection', function(socket){
     console.log('socket %s connected', socket.id);
 
     socket.on('change', function(data){
-	evaluator.evaluate(data.code, function(result){
+	evaluator(data.language).evaluate(data.code, function(result){
 	    socket.emit('result', result);
 	});
     });
