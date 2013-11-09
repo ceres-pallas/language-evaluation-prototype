@@ -21,15 +21,20 @@
     });
     language.addEventListener('change', function(){
 	editor.setOption('mode', language.value);
-    })
+    });
+    language.addEventListener('change', function(){
+	sendCode();
+    });
 
-    editor.on('change', function(instance, change){
+    var sendCode = function(){
 	socket.emit('change', {
 	    language: language.value,
 	    timestamp: (new Date()).timestamp,
-	    code: instance.getValue()
+	    code: editor.getValue()
 	});
-    });
+    };
+
+    editor.on('change', sendCode);
 
     socket.on('result', function(data){
 	result.innerHTML = '';
